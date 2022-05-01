@@ -1,0 +1,21 @@
+CREATE TABLE bikes (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, types INTEGER, price INTEGER);
+
+INSERT INTO bikes VALUES (1, "red bike", 3, "road", 300);
+INSERT INTO bikes VALUES (2, "blue bike", 8, "mountain", 375);
+INSERT INTO bikes VALUES (3, "orange bike", 4, "road", 900);
+INSERT INTO bikes VALUES (4, "yellow bike", 9, "road", 1200);
+INSERT INTO bikes VALUES (5, "brown bike", 12, "mountain", 1200);
+INSERT INTO bikes VALUES (6, "white bike", 2, "road", 700);
+INSERT INTO bikes VALUES (7, "tan bike", 1, "road", 1500);
+INSERT INTO bikes VALUES (8, "lime green bike", 7, "road", 650);
+INSERT INTO bikes VALUES (9, "forest bike", 5, "mountain", 900);
+INSERT INTO bikes VALUES (10, "neon bike", 12, "road", 800);
+INSERT INTO bikes VALUES (11, "cream bike", 3, "road", 2000);
+INSERT INTO bikes VALUES (12, "maroon bike", 1, "road", 450);
+INSERT INTO bikes VALUES (13, "pink bike", 17, "mountain", 700);
+INSERT INTO bikes VALUES (14, "khaki bike", 11, "road", 500);
+INSERT INTO bikes VALUES (15, "black bike", 9, "road", 3000);
+
+SELECT * FROM bikes ORDER BY price; 
+
+SELECT types, SUM(quantity) FROM bikes GROUP BY types  
