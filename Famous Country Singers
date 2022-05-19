@@ -1,0 +1,53 @@
+/* Create table about the people and what they do here */
+
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    songwriter_id INTEGER,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT INTO persons (fullname, age) VALUES ("Alan Jackson", '68');
+INSERT INTO persons (fullname, age) VALUES ("Garth Brooks", '57');
+INSERT INTO persons (fullname, age) VALUES ("George Straight", '64');
+INSERT INTO persons (fullname, age) VALUES ("Willie Nelson", '72');
+INSERT INTO persons (fullname, age) VALUES ("Reba McEntire", '66');
+
+CREATE TABLE songs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    songwriter_id INTEGER,
+    title TEXT,
+    hometown TEXT);
+    
+INSERT INTO songs (title, hometown) VALUES ("Little Bitty", "Arkansas");
+INSERT INTO songs (title, hometown) VALUES ("Thunderoll", "Georgia");
+INSERT INTO songs (title, hometown) VALUES ("Write this down", "Texas");
+INSERT INTO songs (title, hometown) VALUES ("Seven Spanish Angels", "Texas");
+INSERT INTO songs (title, hometown) VALUES ("Fancy", "Oklahoma");
+
+CREATE TABLE song_pairs (id INTEGER PRIMARY KEY,
+    song1_id INTEGER,
+    song2_id INTEGER);
+
+
+INSERT INTO song_pairs (song1_id, song2_id)
+    VALUES(1, 2);
+INSERT INTO song_pairs (song1_id, song2_id)
+    VALUES(3, 4);
+
+SELECT fullname, title
+FROM persons
+LEFT JOIN songs
+ON persons.id = songs.id;
+
+SELECT fullname, age, hometown
+FROM persons
+LEFT JOIN songs
+ON persons.id = songs.id;
+
+SELECT a.title AS Country_hit, b.title AS Pair_to_country_hit
+FROM song_pairs
+JOIN songs a
+ON song_pairs.song1_id = a.id 
+JOIN songs b
+ON song_pairs.song2_id = b.id 
+
